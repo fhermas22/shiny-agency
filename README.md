@@ -1,4 +1,4 @@
-# "Shiny Agency" - SPA build with React
+# "Shiny Agency" - SPA (Single Page Application) build with React
 
 Complete React SPA application created as part of the OpenClassrooms course "Créez une application React complète" (Create a Complete React Application).
 
