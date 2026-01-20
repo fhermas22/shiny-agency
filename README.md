@@ -6,3 +6,4 @@ Complete React SPA application created as part of the OpenClassrooms course "Cr√
 
 - Course OpenClassrooms Link : https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete
 - Course GitHub Repository : https://github.com/fhermas22/build-complete-react-app
+- Project API GitHub Repository : https://github.com/OpenClassrooms-Student-Center/7150606-API-React-intermediaire
