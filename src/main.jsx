@@ -6,27 +6,26 @@ import Survey from './pages/Survey/index.jsx'
 import Freelances from './pages/Freelances/index.jsx'
 import Results from './pages/Results/index.jsx'
 import Header from './components/Header/index.jsx'
+import Footer from './components/Footer/index.jsx'
 import Error from './components/Error/index.jsx'
-import { createGlobalStyle } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-    div {
-        font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    }
-`
+import GlobalStyle from './utils/style/GlobalStyle'
+import { ThemeProvider } from './utils/context/provider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
-      <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/survey/:questionNumber" element={<Survey />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/freelances" element={<Freelances />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <ThemeProvider>
+        <GlobalStyle />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/survey/:questionNumber" element={<Survey />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/freelances" element={<Freelances />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+        <Footer />
+      </ThemeProvider>
     </Router>
   </StrictMode>,
 )
