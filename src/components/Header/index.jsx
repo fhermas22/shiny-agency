@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
 import DarkLogo from '../../assets/dark-logo.png'
 
+const urlRoot = "/shiny-agency";
+
 const HomeLogo = styled.img`
   height: 70px;
 `
@@ -21,9 +23,9 @@ function Header() {
         <HomeLogo src={DarkLogo} />
       </Link>
       <div>
-        <StyledLink to="/">Accueil</StyledLink>
-        <StyledLink to="/freelances">Profils</StyledLink>
-        <StyledLink to="/survey/1" $isFullLink>
+        <StyledLink to={urlRoot}>Accueil</StyledLink>
+        <StyledLink to={`${urlRoot}/freelances`}>Profils</StyledLink>
+        <StyledLink to={`${urlRoot}/survey/1`} $isFullLink>
           Faire le test
         </StyledLink>
       </div>

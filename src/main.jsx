@@ -9,22 +9,27 @@ import Header from './components/Header/index.jsx'
 import Footer from './components/Footer/index.jsx'
 import Error from './components/Error/index.jsx'
 import GlobalStyle from './utils/style/GlobalStyle'
-import { ThemeProvider } from './utils/context/provider.jsx'
+import { ThemeProvider } from './utils/context/ThemeProvider.jsx'
+import { SurveyProvider } from './utils/context/SurveyProvider.jsx'
+
+const urlRoot = "/shiny-agency";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <ThemeProvider>
-        <GlobalStyle />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/survey/:questionNumber" element={<Survey />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/freelances" element={<Freelances />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-        <Footer />
+         <SurveyProvider>
+          <GlobalStyle />
+          <Header />
+          <Routes>
+            <Route path={urlRoot} element={<Home />} />
+            <Route path={`${urlRoot}/survey/:questionNumber`} element={<Survey />} />
+            <Route path={`${urlRoot}/results`} element={<Results />} />
+            <Route path={`${urlRoot}/freelances`} element={<Freelances />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+          <Footer />
+         </SurveyProvider>
       </ThemeProvider>
     </Router>
   </StrictMode>,

@@ -3,6 +3,8 @@ import colors from '../../utils/style/colors'
 import { StyledLink } from '../../utils/style/Atoms'
 import HomeIllustration from '../../assets/home-illustration.svg'
 
+const urlRoot = "/shiny-agency";
+
 const HomeWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -46,7 +48,7 @@ function Home() {
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
             talents
           </StyledTitle>
-          <StyledLink to="/survey/1" $isFullLink>
+          <StyledLink to={`${urlRoot}/survey/1`} $isFullLink>
             Faire le test
           </StyledLink>
         </LeftCol>
