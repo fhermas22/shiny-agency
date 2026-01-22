@@ -1,7 +1,9 @@
-import { Link } from "react-router"
+import { Link } from 'react-router'
 import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
+import LightLogo from '../../assets/light-logo.png'
 import DarkLogo from '../../assets/dark-logo.png'
+import { useTheme } from '../../utils/hooks'
 
 const urlRoot = "/shiny-agency";
 
@@ -17,14 +19,20 @@ const NavContainer = styled.nav`
 `
 
 function Header() {
+  const { theme } = useTheme()
+
   return (
     <NavContainer>
-      <Link to="/">
-        <HomeLogo src={DarkLogo} />
+      <Link to={`${urlRoot}/`}>
+        <HomeLogo src={theme === 'light' ? DarkLogo : LightLogo} />
       </Link>
       <div>
-        <StyledLink to={urlRoot}>Accueil</StyledLink>
-        <StyledLink to={`${urlRoot}/freelances`}>Profils</StyledLink>
+        <StyledLink $theme={theme} to={`${urlRoot}/`}>
+          Accueil
+        </StyledLink>
+        <StyledLink $theme={theme} to={`${urlRoot}/freelances`}>
+          Profils
+        </StyledLink>
         <StyledLink to={`${urlRoot}/survey/1`} $isFullLink>
           Faire le test
         </StyledLink>
