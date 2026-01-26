@@ -10,12 +10,12 @@ const freelancersMockedData = [
     {
         name: 'Harry Potter',
         job: 'Magicien frontend',
-        picture: '',
+        picture: null,
     },
     {
         name: 'Hermione Granger',
         job: 'Magicienne fullstack',
-        picture: '',
+        picture: null,
     },
 ]
 
