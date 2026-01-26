@@ -1,7 +1,9 @@
 import React from 'react'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import { render, waitFor, screen } from '@testing-library/react'
+import { waitFor, screen, waitForElementToBeRemoved } from '@testing-library/react'
+import { ThemeProvider } from '../../utils/context/ThemeProvider'
+import { render } from '../../utils/test'
 import Freelances from './'
 
 const freelancersMockedData = [
@@ -23,7 +25,11 @@ test('Should render without crash', async () => {
             <Freelances />
         </ThemeProvider>
     )
-    expect(screen.getByTestId('loader')).toBeTruthy()
+    await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
+    await waitFor(() => {
+        expect(screen.getByText('Harry Potter')).toBeTruthy()
+        expect(screen.getByText('Hermione Granger')).toBeTruthy()
+    })
 })
  
 const server = setupServer(

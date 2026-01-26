@@ -12,7 +12,7 @@ const { TextEncoder, TextDecoder } = require('util');
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder;
 
-// Mock localStorage pour éviter les erreurs "SecurityError"
+// Mock localStorage to avoid "SecurityError" errors
 const localStorageMock = (function() {
     let store = {};
     return {
@@ -31,6 +31,6 @@ const localStorageMock = (function() {
     };
 })();
 
-// Assignez le mock à l'environnement global JSDOM
+// Assign mock to global JSDOM environement 
 Object.defineProperty(global, 'localStorage', { value: localStorageMock });
 Object.defineProperty(global.window, 'localStorage', { value: localStorageMock });
